@@ -38,7 +38,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-
+gem "thin"
 gem "active_attr"
 gem "haml-rails"
 gem "utf8-cleaner"
@@ -52,7 +52,6 @@ gem "bootstrap-datepicker-rails"
 gem "jquery-ui-rails"
 group :test, :development do
   gem "pry-rails"
-  gem "thin"
   gem "infopark_dashboard", "~> 0.0.3"
 end
 
