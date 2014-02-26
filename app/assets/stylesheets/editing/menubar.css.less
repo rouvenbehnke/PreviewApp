@@ -1,0 +1,26 @@
+// Infopark Kickstarter Edit Mode Toggle
+
+// Display a fixed edit mode toggle in the upper right corner and highlight the toggle button, when
+// the editor interacts with it.
+a#edit-toggle {
+  color: #8094bb;
+  cursor: pointer;
+  margin: 10px 10px 0 0;
+  position: fixed;
+  right: 0;
+  text-decoration: none;
+  top: 0;
+
+  &:hover {
+    color: #6e84a8;
+  }
+}
+
+// Hide the edit mode toggle, when editing is active already.
+body.ip_editing_active {
+  padding-top: 47px;
+
+  #edit-toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,69 @@
+@import "editing/mixins";
+
+// Nested widget styles
+//
+// For nested widgets it is immportant that their corresponding edit markers are all visible and
+// accessible for the editor. A nested widget is identified, when the div of the outer structure
+// widget has a CMS widget attribute inside. If that is the case, the structure widget edit marker
+// is placed above the edit marker for the CMS widget attribute and gets a different color.
+
+body.ip_editing_active.ip_editable_workspace {
+  div[data-ip-private-widget-obj-class] {
+    // Color to highlight the structure widget
+    @nestedWidgetColor: #74e000;
+
+    // Minimum Height of both widgets, to move the edit markers apart.
+    @nestedWidgetMinHeight: 30px;
+
+    min-height: @nestedWidgetMinHeight;
+
+    div[data-ip-field-type=widget] {
+      .transition(~"outline-color ease-in-out .8s");
+
+      margin-top: 35px;
+      min-height: @nestedWidgetMinHeight;
+      outline: 2px dotted @nestedWidgetColor;
+      outline: 2px dotted fade(@nestedWidgetColor, 20%);
+
+      &:hover {
+        .transition(~"outline-color ease-in-out .3s");
+
+        outline: 2px dotted @nestedWidgetColor;
+      }
+
+      & > .ip_editing_marker {
+        border-color: @nestedWidgetColor;
+      }
+    }
+  }
+}
+
+// Inplace editing CMS attributes styles
+//
+// When CMS attributes are displayed on the page and edit mode is active, the attributes get
+// highlighted and indicate, that they can be edited via inplace editing.
+
+body.ip_editing_active.ip_editable_workspace {
+  [data-ip-field-type=html],
+  [data-ip-field-type=string],
+  [data-ip-field-type=text],
+  [data-ip-field-type=reference],
+  [data-ip-field-type=date] {
+    @editableFieldColor: #ffa500;
+
+   .transition(~"outline-color ease-in-out .8s");
+
+    min-height: 35px;
+    outline: 2px dotted @editableFieldColor;
+    outline: 2px dotted fade(@editableFieldColor, 30%);
+    text-shadow: none;
+
+    &:hover,
+    &:focus {
+      .transition(~"outline-color ease-in-out .3s");
+
+      outline: 2px dotted @editableFieldColor;
+      text-shadow: none;
+    }
+  }
+}

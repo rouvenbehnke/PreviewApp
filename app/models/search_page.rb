@@ -1,0 +1,2 @@
+class SearchPage < Page
+end

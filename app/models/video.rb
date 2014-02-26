@@ -1,0 +1,2 @@
+class Video < Obj
+end

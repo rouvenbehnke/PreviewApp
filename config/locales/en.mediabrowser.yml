@@ -1,0 +1,29 @@
+en:
+  layouts:
+    mediabrowser:
+      inspector:
+        delete: 'Delete'
+        details: 'Details'
+
+  mediabrowser:
+    button_bar:
+      select: 'Select'
+      close: 'Cancel'
+      delete: 'Delete'
+
+    filter:
+      results: 'All results'
+      selected: 'Selected'
+      image: 'Images'
+      blog_post: 'Blog Posts'
+      error_page: 'Error Pages'
+
+      icon_class:
+        image: 'image'
+        blog_post: 'generic'
+        error_page: 'generic'
+
+    header:
+      search:
+        placeholder: 'Search'
+        button: 'Search'

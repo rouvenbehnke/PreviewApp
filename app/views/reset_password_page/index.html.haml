@@ -1,0 +1,24 @@
+.col-md-6
+  .panel.panel-default
+    .panel-heading
+      %span.glyphicon.glyphicon-lock
+
+      = cms_tag(:span, @obj, :headline)
+
+    .panel-body
+      = form_for(:user, url: cms_path(@obj), html: { class: 'form-horizontal', role: 'form' }) do |form|
+        = hidden_field_tag(:return_to, params[:return_to])
+
+        .form-group
+          = form.label(:login, 'Login', class: 'control-label col-md-3')
+
+          .col-md-9
+            = form.text_field(:login, class: 'form-control', required: true)
+
+        .form-group
+          .col-md-offset-3.col-md-9
+            = form.submit('Reset password', class: 'btn btn-success')
+
+    .panel-footer
+      = link_to(cms_path(@obj.homepage.login_page)) do
+        Do you want to log in?

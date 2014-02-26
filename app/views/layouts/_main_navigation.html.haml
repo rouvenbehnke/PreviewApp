@@ -1,0 +1,22 @@
+- if homepage.present?
+  .navbar.navbar-default{role: 'navigation'}
+    .container
+      .navbar-header
+        %button.navbar-toggle{type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' }}
+          %span.sr-only
+            Toggle navigation
+
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+
+        = link_to(cms_path(homepage), class: 'navbar-brand') do
+          = homepage.menu_title
+
+      .navbar-collapse.collapse
+        = render('layouts/search', search_page: homepage.search_page, query: params[:q])
+
+        = cms_tag_list(:ul, homepage, :toclist, class: 'nav navbar-nav', id: 'main_nav') do |list, obj|
+          - list.tag(:li, id: "main_nav_page_#{obj.id}", data: { path: obj.path }) do
+            = link_to(cms_path(obj)) do
+              = obj.menu_title

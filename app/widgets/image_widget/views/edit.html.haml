@@ -1,0 +1,9 @@
+%h4
+  Alignment
+
+= cms_edit_enum(@widget, :align)
+
+%h4
+  File size
+
+= number_to_human_size(@widget.source.try(:body_length))
