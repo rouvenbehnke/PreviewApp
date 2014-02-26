@@ -1,5 +1,9 @@
 def crm_config
   config = YAML.load_file(Rails.root + 'config/custom_cloud.yml')
+  if config.key?(Rails.env)
+    env_config = config.delete(Rails.env)
+    config = config.merge(env_config)
+  end
   config['crm'] || {}
 rescue Errno::ENOENT
   {}
