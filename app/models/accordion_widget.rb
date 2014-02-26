@@ -1,0 +1,2 @@
+class AccordionWidget < Widget
+end

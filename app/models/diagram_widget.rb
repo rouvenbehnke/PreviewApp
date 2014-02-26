@@ -1,0 +1,2 @@
+class DiagramWidget < Widget
+end

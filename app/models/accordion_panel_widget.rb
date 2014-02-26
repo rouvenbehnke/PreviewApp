@@ -1,0 +1,2 @@
+class AccordionPanelWidget < Widget
+end
