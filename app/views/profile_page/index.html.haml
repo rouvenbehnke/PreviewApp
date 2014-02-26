@@ -1,0 +1,61 @@
+.col-md-12
+  = cms_tag(:h1, @obj, :headline)
+
+  = cms_tag(:div, @obj, :content)
+
+  = form_for(@presenter, url: cms_path(@obj), html: { class: 'form-horizontal' }) do |form|
+    %fieldset
+      %legend
+        User Details
+
+      = form.hidden_field(:id)
+
+      .form-group
+        .col-md-offset-2.col-md-10
+          .radio
+            = form.label(:gender, value: :F) do
+              = form.radio_button(:gender, :F)
+
+              Female
+
+          .radio
+            = form.label(:gender, value: :M) do
+              = form.radio_button(:gender, :M)
+
+              Male
+
+      .form-group
+        = form.label(:first_name, 'First name', class: 'col-md-2 control-label')
+
+        .col-md-9
+          = form.text_field(:first_name, class: 'form-control')
+
+      .form-group
+        = form.label(:last_name, 'Last name', class: 'col-md-2 control-label')
+
+        .col-md-9
+          = form.text_field(:last_name, class: 'form-control', required: true)
+
+      .form-group
+        = form.label(:language, 'Language', class: 'col-md-2 control-label')
+
+        .col-md-9
+          = form.select(:language, [['English', :en], ['German', :de]], {}, class: 'form-control')
+
+      .form-group
+        = form.label(:email, 'Email', class: 'col-md-2 control-label')
+
+        .col-md-9
+          = form.email_field(:email, class: 'form-control', required: true)
+
+      .form-group
+        .col-md-offset-2.col-md-10
+          .checkbox
+            = form.label(:want_email) do
+              = form.check_box(:want_email)
+
+              Yes, I would like to be contacted via email.
+
+      .form-group
+        .col-md-offset-2.col-md-10
+          = form.submit('Save profile', class: 'btn btn-default')

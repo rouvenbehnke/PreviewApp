@@ -1,0 +1,12 @@
+:javascript
+  var disqus_shortname = '#{post.disqus_shortname}';
+
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+
+= link_to(cms_path(post, anchor: 'disqus_thread'), data: { 'disqus-identifier' => post.id }) do
+  Comments

@@ -1,0 +1,7 @@
+.col-md-9.blog_posts
+  = render(partial: 'post', collection: @posts)
+
+  = render('pagination', page: @obj, index: @page_index)
+
+.col-md-3
+  = render('blog/useful_links', page: @obj)

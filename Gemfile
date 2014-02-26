@@ -59,3 +59,24 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+
+group :assets do
+end
+
+group :test, :development do
+  gem "thin"
+end
+
+group :development do
+end
+
+gem "gravatar_image_tag"
+gem "momentjs-rails"
+group :assets do
+end
+
+group :test, :development do
+end
+
+group :development do
+end

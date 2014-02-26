@@ -21,6 +21,8 @@
 
     %link{href: '/favicon.ico', rel: 'shortcut icon'}
 
+    = render('blog/discovery', page: @obj)
+
   %body{body_attributes(@obj)}
     = render('layouts/menubar', current_user: current_user)
 

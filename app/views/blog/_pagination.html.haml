@@ -1,0 +1,15 @@
+%ul.pager
+  %li.previous{class: ('disabled' if index == 0)}
+    - if index > 0
+      = link_to(cms_path(page, page_index: index - 1)) do
+        = render 'newer_posts_link'
+
+    - else
+      %span
+        = render 'newer_posts_link'
+
+  %li.next
+    = link_to(cms_path(page, page_index: index + 1)) do
+      Older posts
+
+      %span.glyphicon.glyphicon-chevron-right

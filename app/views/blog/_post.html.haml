@@ -1,0 +1,22 @@
+.panel.panel-default
+  .panel-heading
+    .media
+      - if post.author_id.present?
+        = render('blog_post/gravatar', email: post.author_id)
+
+      .media-body
+        %h2.media-heading
+          = link_to(cms_path(post)) do
+            = cms_tag(:span, post, :headline)
+
+        = render('blog_post/published_at', date: post.published_at.to_date)
+
+        - if post.author_name.present?
+          = render('blog_post/published_by', author: post.author_name)
+
+  .panel-body
+    = render('blog_post/main_content', post: post)
+
+  .panel-footer
+    - if post.enable_comments? && post.disqus_shortname.present?
+      = render('comment_count', post: post)

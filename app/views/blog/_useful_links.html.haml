@@ -1,0 +1,9 @@
+%h4
+  Useful Links
+
+%ul.nav.nav-pills.nav-stacked
+  %li
+    = link_to(cms_path(page.blog, format: :atom)) do
+      = image_tag('feed-icon.svg', style: 'height:16px')
+
+      Feed

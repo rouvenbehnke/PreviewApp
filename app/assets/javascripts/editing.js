@@ -13,5 +13,6 @@
 //= require jquery.ui.sortable
 //= require bootstrap-datepicker
 //= require redactor
+//= require moment
 //= require_self
 //= require_tree ./editing

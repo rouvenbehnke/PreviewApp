@@ -1,0 +1,2 @@
+class ProfilePage < Page
+end

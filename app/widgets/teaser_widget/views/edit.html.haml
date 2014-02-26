@@ -1,0 +1,14 @@
+%h4
+  Headline
+
+= cms_tag(:div, @widget, :headline)
+
+%h4
+  Content
+
+= cms_tag(:div, @widget, :content)
+
+%h4
+  Link to
+
+= cms_edit_linklist(@widget, :link_to)

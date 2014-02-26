@@ -1,0 +1,19 @@
+%h4
+  Headline
+
+= cms_tag(:div, @obj, :headline)
+
+%h4
+  Author ID
+
+= cms_tag(:div, @obj, :author_id)
+
+%h4
+  Author name
+
+= cms_tag(:div, @obj, :author_name)
+
+%h4
+  Published at
+
+= cms_edit_date(@obj, :published_at)

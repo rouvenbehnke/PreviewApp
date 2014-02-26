@@ -1,0 +1,17 @@
+- previous_post = post.previous_post
+- next_post = post.next_post
+
+%ul.pager
+  - if previous_post.present?
+    %li.previous
+      = link_to(cms_path(previous_post)) do
+        %span.glyphicon.glyphicon-chevron-left
+
+        = previous_post.menu_title
+
+  - if next_post.present?
+    %li.next
+      = link_to(cms_path(next_post)) do
+        = next_post.menu_title
+
+        %span.glyphicon.glyphicon-chevron-right

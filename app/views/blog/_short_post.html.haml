@@ -1,0 +1,10 @@
+.media
+  - if short_post.author_id.present?
+    = render('gravatar', email: short_post.author_id, size: 35)
+
+  .media-body
+    %h5.media-heading
+      = link_to(cms_path(short_post)) do
+        = cms_tag(:span, short_post, :headline)
+
+= truncate(strip_tags(cms_tag(:div, short_post, :main_content)), length: 150)

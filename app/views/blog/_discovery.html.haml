@@ -1,0 +1,2 @@
+- if page.respond_to?(:blog)
+  = auto_discovery_link_tag(:atom, cms_path(page.blog, format: :atom))

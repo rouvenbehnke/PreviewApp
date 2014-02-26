@@ -1,0 +1,28 @@
+.col-md-9
+  .panel.panel-default
+    .panel-heading
+      .media
+        - if @obj.author_id.present?
+          = render('gravatar', email: @obj.author_id)
+
+        .media-body
+          = cms_tag(:h2, @obj, :headline, class: 'media-heading')
+
+          = render('published_at', date: @obj.published_at.to_date)
+
+          - if @obj.author_name.present?
+            = render('published_by', author: @obj.author_name)
+
+    .panel-body
+      = render('main_content', post: @obj)
+
+    .panel-footer
+      - if @obj.enable_comments? && @obj.disqus_shortname.present?
+        = render('comments', post: @obj)
+
+  = render('pagination', post: @obj)
+
+.col-md-3
+  = render('blog/latest_blog_posts', blog: @obj.blog)
+
+  = render('blog/useful_links', page: @obj)
