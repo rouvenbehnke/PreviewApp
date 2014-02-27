@@ -80,3 +80,5 @@ end
 
 group :development do
 end
+
+gem "projekktor-rails"

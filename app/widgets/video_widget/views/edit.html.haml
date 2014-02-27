@@ -1,0 +1,24 @@
+%h4
+  Source
+
+= cms_edit_reference(@widget, :source)
+
+%h4
+  Poster
+
+= cms_edit_reference(@widget, :poster)
+
+%h4
+  Width
+
+= cms_tag(:div, @widget, :width)
+
+%h4
+  Height
+
+= cms_tag(:div, @widget, :height)
+
+%h4
+  Autoplay
+
+= cms_edit_enum(@widget, :autoplay)

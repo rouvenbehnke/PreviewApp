@@ -1,0 +1,2 @@
+class SliderWidget < Widget
+end

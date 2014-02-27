@@ -1,0 +1,2 @@
+%video.projekktor{width: @widget.width, height: @widget.height, poster: @widget.poster && cms_url(@widget.poster), controls: true, data: { autoplay: @widget.autoplay == 'Yes' }}
+  %source{src: @widget.source && cms_url(@widget.source), type: @widget.mime_type}

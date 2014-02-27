@@ -116,6 +116,7 @@ GEM
     multi_json (1.8.4)
     nokogiri (1.5.11)
     polyglot (0.3.4)
+    projekktor-rails (0.0.5)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -198,6 +199,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails-bootstrap (~> 3.0)
   momentjs-rails
+  projekktor-rails
   pry-rails
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
