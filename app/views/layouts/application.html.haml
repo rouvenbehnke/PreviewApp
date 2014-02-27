@@ -32,6 +32,10 @@
       .content
         .row
           .col-md-12
+            = render('layouts/breadcrumbs', page: @obj)
+
+        .row
+          .col-md-12
             = render('layouts/flash', flash: flash)
 
             = yield

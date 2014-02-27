@@ -1,0 +1,10 @@
+- if page.respond_to?(:show_breadcrumbs?) && page.show_breadcrumbs?
+  %ol.breadcrumb
+    - page.breadcrumbs.each do |obj|
+      - if obj == page
+        %li.active>
+          = obj.menu_title
+
+      - else
+        %li>
+          = link_to(obj.menu_title, cms_path(obj))
