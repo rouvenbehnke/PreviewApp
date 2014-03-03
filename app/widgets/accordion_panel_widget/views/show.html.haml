@@ -4,4 +4,4 @@
       = cms_tag(:a, @widget, :headline, href: "#collapse-panel-#{@widget.id}", data: { toggle: 'collapse', parent: "#accordion-#{@obj.id}" })
 
   .panel-collapse.collapse{id: "collapse-panel-#{@widget.id}"}
-    = cms_tag(:div, @widget, :main_content, class: 'panel-body')
+  = cms_tag(:div, @widget, :main_content, class: 'panel-body')

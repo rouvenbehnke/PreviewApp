@@ -1,18 +1,19 @@
-- javascript_id = "##{@widget.id}"
+%div
+  - javascript_id = "##{@widget.id}"
 
-%div.carousel.slide{id: @widget.id, data: { ride: 'carousel' }}
-  %ol.carousel-indicators
-    - @widget.images.each_with_index do |_, index|
-      %li{class: (index == 0 ? 'active' : nil), data: { target: javascript_id, slide: { to: index }}}
+  %div.carousel.slide{id: @widget.id, data: { ride: 'carousel' }}
+    %ol.carousel-indicators
+      - @widget.images.each_with_index do |_, index|
+        %li{class: (index == 0 ? 'active' : nil), data: { target: javascript_id, slide: { to: index }}}
 
-  %div.carousel-inner
-    - @widget.images.each_with_index do |image, index|
-      %div.item{class: (index == 0 ? 'active' : nil)}
-        = cms_image_tag(image)
+    %div.carousel-inner
+      - @widget.images.each_with_index do |image, index|
+        %div.item{class: (index == 0 ? 'active' : nil)}
+          = cms_image_tag(image)
 
 
-  %a.carousel-control.left{href: javascript_id, data: { slide: :prev }}
-    %span.glyphicon.glyphicon-chevron-left
+    %a.carousel-control.left{href: javascript_id, data: { slide: :prev }}
+      %span.glyphicon.glyphicon-chevron-left
 
-  %a.carousel-control.right{href: javascript_id, data: { slide: :next }}
-    %span.glyphicon.glyphicon-chevron-right
+    %a.carousel-control.right{href: javascript_id, data: { slide: :next }}
+      %span.glyphicon.glyphicon-chevron-right
