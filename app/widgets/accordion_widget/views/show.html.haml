@@ -1,3 +1,5 @@
+%h3
+  = @widget.description
 .row
   .col-md-12
     = cms_tag(:div, @widget, :panels, class: 'panel-group', id: "accordion-#{@widget.id}")

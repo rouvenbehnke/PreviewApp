@@ -5,6 +5,11 @@ require './lib/rails_connector/cms_definitions'
 class Widget < ::RailsConnector::BasicWidget
   include RailsConnector::CmsDefinitions
 
+  def description
+  	obj_class
+  end
+
+
   def homepage
     obj.homepage
   end
