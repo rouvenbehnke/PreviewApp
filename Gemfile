@@ -64,7 +64,7 @@ group :assets do
 end
 
 group :test, :development do
-  gem "thin"
+  # gem "thin"
 end
 
 group :development do
