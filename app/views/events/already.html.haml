@@ -1,0 +1,9 @@
+%h1 Vielen Dank für Ihre Antwort
+
+%p
+  =(@contact.gender == "M")? "Sehr geehrter Herr" : "Sehr geehrte Frau"
+  =@contact.last_name + ","
+  %br
+  für dieses Event haben Sie bereits zu- oder abgesagt. Sollten Sie Ihre Meinung geändert haben bitten wir Sie uns unter folgender Telefonnummer (+49 30 1234567) zu kontaktieren.
+%p
+  Wir bitten Sie um Ihr Verständnis.

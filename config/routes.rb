@@ -1,4 +1,9 @@
 Cc71::Application.routes.draw do
+
+  match 'event-invitation/create' => 'events#create', :as => 'events_invitaion_create'
+  match 'event-invitation/already/:contact' => 'events#already', :as => 'event_invitation_already'
+  match 'event-invitation/confirmation/:contact' => 'events#confirmation', :as => 'event_invitation_confirmation'
+  get 'event-invitation/:event/:contact', to: 'events#invitation'
   get 'sitemap.xml', controller: 'sitemap', action: 'index', format: 'xml'
 
   mount InfoparkDashboard::Engine => '/cms/dashboard' if Rails.env.development?
@@ -6,6 +11,7 @@ Cc71::Application.routes.draw do
   get 'mediabrowser', to: 'mediabrowser#index'
   get 'mediabrowser/inspector', to: 'mediabrowser#inspector'
   get 'mediabrowser/modal', to: 'mediabrowser#modal'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

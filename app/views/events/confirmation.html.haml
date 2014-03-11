@@ -1,0 +1,7 @@
+%h1 Vielen Dank für Ihre Antwort
+
+%p
+  =(@contact.gender == "M")? "Sehr geehrter Herr" : "Sehr geehrte Frau"
+  =@contact.last_name + ","
+  %br
+  wir haben Ihre Zu- oder Absage in unserem System erfasst. Wir werden uns mit weiteren Informationen in kürze bei Ihnen melden.
