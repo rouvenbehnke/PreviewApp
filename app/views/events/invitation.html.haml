@@ -1,76 +1,82 @@
 %h1= @event.title
 
 %p
-  =(@contact.gender == "M")? "Sehr geehrter Herr" : "Sehr geehrte Frau"
-  =@contact.last_name + ","
-%p
-  vielen Dank für Ihr Interesse am Besuch bei
-  =@event.title
-%p
-  Die Messe findet vom 
-  =Time.parse(@event.dtstart_at).strftime("%d.%m.%Y %H:%m")
-  Uhr bis
-  =Time.parse(@event.dtend_at).strftime("%d.%m.%Y %H:%m")
-  Uhr stat.
-  Veranstaltungsort ist
-  =@event.location
-%p
-  Wir würden uns über Ihre Anmeldung freuen.
+  = t("contact.salutation.#{@contact.gender}", last_name: @contact.last_name)
   %br
-  Vielleicht kennen Sie noch eine Kollegin/einen Kollegen für den dieses Event auch interessant sein kann, können Sie sie/ihn auch für dieses Event anmelden.
+  = t("invitation.invite.thanks", event_name: @event.title)
+%p
+  = t("invitation.invite.date", 
+    event_from: Time.parse(@event.dtstart_at).strftime("%d.%m.%Y %H:%m"), 
+    event_until: Time.parse(@event.dtend_at).strftime("%d.%m.%Y %H:%m"), 
+    event_location: @event.location)
+%p
+  = t("invitation.invite.closer")
+%p
+  = t("invitation.invite.college")
   
   = form_for @contact, url: {action: "create"}, html: {class: "form-horizontal"} do |f|
+    %h3
+      = t("invitation.invite.registration.me_headline")
     %p
-      %b Ihre Anmeldung
-      %br
-      Für Sie haben wir folgende Daten hinterlegt und würden uns freuen Sie bei uns begrüßen zu können.
+      = t("invitation.invite.registration.me_description", cant: t("invitation.invite.form.value.unregistered")).html_safe
     %p
       .form-group
-        =label(:contact, :status, "Nehmen Sie am Event teil?", class: "col-sm-2 control-label")
+        = label(:contact, :status, class: "col-sm-2 control-label")
         .col-sm-10
-          =select_tag("state", options_for_select([["Ich nehme selbst teil", "registered"], ["Ich nehme nicht selbst teil", "unregistered"]]), class: "form-control")
+          = select_tag("state", |
+            options_for_select([ |
+              [t("invitation.invite.form.value.registered"), "registered"], |
+              [t("invitation.invite.form.value.unregistered"), "unregistered"] |
+            ]), |
+            class: "form-control") |
       .form-group
         =f.label :first_name, class: "col-sm-2 control-label"
         .col-sm-4
-          =f.text_field :first_name, class: "form-control", placeholder: "Vorname"
-        =f.label :first_laste, class: "col-sm-2 control-label"
+          =f.text_field :first_name, class: "form-control"
+        =f.label :last_name, class: "col-sm-2 control-label"
         .col-sm-4
-          =f.text_field :last_name, class: "form-control", placeholder: "Nachname"
+          =f.text_field :last_name, class: "form-control"
       .form-group
         =f.label :email, class: "col-sm-2 control-label"
         .col-sm-10
-          =f.text_field :email, class: "form-control", placeholder: "Emailadresse"
+          =f.text_field :email, class: "form-control"
       .form-group
         =f.label :phone, class: "col-sm-2 control-label"
         .col-sm-10
-          =f.text_field :phone, class: "form-control", placeholder: "Telefon"
+          =f.text_field :phone, class: "form-control"
+    %h3
+      = t("invitation.invite.registration.college_headline")
     %p
-      %b Jemanden einladen
-      %br
-      Sie möchten eine Kollegin/einen Kollegen einladen? Dann füllen Sie bitte das folgende Formular aus.
+      = t("invitation.invite.registration.college_description")
 
     %p
       .form-group
-        =label(:guest, :gender, "Anrede", class: "col-sm-2 control-label")
+        =label(:guest, :gender, class: "col-sm-2 control-label")
         .col-sm-2
-          =select_tag("guest[gender]", options_for_select([["Herr", "M"], ["Frau", "F"]]), class: "form-control")
-        =label(:guest, :first_name, "Vorname", class: "col-sm-1 control-label")
+          =select_tag("guest[gender]", |
+            options_for_select([ |
+              [t("invitation.invite.form.value.M"), "M"], |
+              [t("invitation.invite.form.value.F"), "F"] |
+            ]), |
+            class: "form-control") |
+        =label(:guest, :first_name, class: "col-sm-1 control-label")
         .col-sm-3
-          =text_field(:guest, :first_name, class: "form-control", placeholder: "Vorname")
-        =label(:guest, :last_name, "Nachname", class: "col-sm-1 control-label")
+          =text_field(:guest, :first_name, class: "form-control")
+        =label(:guest, :last_name, class: "col-sm-1 control-label")
         .col-sm-3
-          =text_field(:guest, :last_name, class: "form-control", placeholder: "Nachname")
+          =text_field(:guest, :last_name, class: "form-control")
       .form-group
-        =label(:guest, :email, "E-Mailadresse", class: "col-sm-2 control-label")
+        =label(:guest, :email, class: "col-sm-2 control-label")
         .col-sm-10
-          =text_field(:guest, :email, class: "form-control", placeholder: "E-Mailadresse")
+          =text_field(:guest, :email, class: "form-control")
       .form-group
-        =label(:guest, :phone, "Telefon", class: "col-sm-2 control-label")
+        =label(:guest, :phone, class: "col-sm-2 control-label")
         .col-sm-10
-          =text_field(:guest, :phone, class: "form-control", placeholder: "Telefon")
+          =text_field(:guest, :phone, class: "form-control")
       .form-group
         .col-sm-offset-2.col-sm-10
           =hidden_field(:params, :event, value: params[:event])
           =hidden_field(:params, :contact, value: params[:contact])
           =hidden_field(:params, :extern, value: params[:extern])
-          %button.btn.btn-default{type: "submit"}Anmelden
+          =hidden_field(:params, :locale, value: I18n.locale)
+          %button.btn.btn-default{type: "submit"}= t("invitation.invite.form.submit")

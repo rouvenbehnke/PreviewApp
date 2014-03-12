@@ -1,0 +1,13 @@
+%h1= t("unsubscribe.headline")
+%p
+  = t("contact.salutation.#{@contact.gender}", last_name: @contact.last_name)
+  %br
+  = t("unsubscribe.body").html_safe
+%p
+  = form_tag(unsubscribe_confirmation_path, method: "post") do
+    %p
+      =text_area(:unsub, :reason, class: "form-control")
+      =hidden_field(:unsub, :activity, value: @a.id)
+      =hidden_field(:params, :locale, value: I18n.locale)
+    %p
+      %button.btn.btn-default{type: "submit"}= t("unsubscribe.button")

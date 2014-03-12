@@ -2,4 +2,38 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
-  hello: "Hallo"
+  contact:
+    salutation:
+      M: "Sehr geehrter Herr %{last_name},"
+      F: "Sehr geehrte Frau %{last_name},"
+  invitation:
+    invite:
+      thanks: "vielen Dank für Ihr Interesse am Besuch bei %{event_name}"
+      date: "Die Messe findet vom %{event_from} Uhr bis %{event_until} Uhr statt. Veranstaltungsort ist %{event_location}."
+      closer: "Wir würden uns sehr freuen, Sie an unserem Stand begrüßen zu können."
+      college: "Wenn Sie nicht teilnehmen können, oder eine Kollegin/ein Kollege von Ihnen Interesse an einem Besuch hätte, dann können Sie sie/ihn ganz bequem einladen."
+      registration:
+        me_headline: "Ihre Anmeldung"
+        me_description: "Folgende Daten werden für Ihre Anmeldung benötigt.<br>Sollte es Ihnen nicht möglich sein an der Veranstaltung teilzunehmen, wählen Sie bitte \"%{cant}\" aus."
+        college_headline: "Kollegin/Kollegen einladen"
+        college_description: "Hier können Sie einer Kollegin/einem Kollegen das Event empfehlen. Sie/Er wird von uns eine Einladung bekommen und kann für sich entscheiden, ob sie/er teilnehmen möchte."
+      form:
+        value:
+          registered: "Ich nehme an dem Event teil."
+          unregistered: "Ich nehme nicht an dem Event teil."
+          M: "Herr"
+          F: "Frau"
+        submit: "Anmelden"
+    conf:
+      headline: "Vielen Dank für Ihre Antwort."
+      body: "Wir haben Ihre Zu- oder Absage in unserem System erfasst. Bei einer Zusage werden wir uns rechtzeitig mit weiteren Informationen bei Ihnen melden."
+    already:
+      headline: "Vielen Dank für Ihre Antwort."
+      body: "Für dieses Event haben Sie bereits zu- oder abgesagt. Sollten Sie Ihre Meinung geändert haben, bitten wir Sie, uns unter folgender Telefonnummer (+49 30 1234567) zu kontaktieren."
+  unsubscribe:
+    headline: "Mails abbestellen"
+    body: "Mit Bedauern nehmen wir zur Kenntnis, dass Sie in Zukunft keine Mails mehr von uns erhalten wollen. Ihrem Wunsch kommen wir natürlich sofort nach.<br>Vielleicht wollen Sie uns noch einen Grund nennen, warum Sie in Zukunft keine Mails mehr von uns erhalten wollen?"
+    button: "Feedback geben"
+    confirmation:
+      headline: "Vielen Dank für Ihr Feedback."
+      body: "Wir werden Ihr Feedback in Zukunft berücksichtigen."

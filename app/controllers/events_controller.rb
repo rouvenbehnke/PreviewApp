@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
-  before_filter :meta, :homepage
+  before_filter :meta, :homepage, :set_locale
   def invitation
     @event = Infopark::Crm::Event.find(params[:event])
     @contact = Infopark::Crm::Contact.find(params[:contact])
-    @guest = Infopark::Crm::Contact.new()
   end
 
   def create
@@ -32,9 +31,9 @@ class EventsController < ApplicationController
           guest = new_or_known(params[:guest])
           create_invitation(guest, @contact, @event)
         end
-        redirect_to event_invitation_confirmation_path(contact: @contact)
+        redirect_to event_invitation_confirmation_path(contact: @contact, locale: params[:params][:locale])
     else
-      redirect_to event_invitation_already_path(contact: @contact)
+      redirect_to event_invitation_already_path(contact: @contact, locale: params[:params][:locale])
     end
   end
 
@@ -81,5 +80,9 @@ class EventsController < ApplicationController
 
   def homepage
     @obj = Obj.find("dd447003a7ebc532")
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

@@ -2,6 +2,38 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  contact:
+    salutation:
+      M: "Dear Mr. %{last_name},"
+      F: "Dear Mrs. %{last_name},"
   invitation:
-    first_name: First Name
+    invite:
+      thanks: "thank you for your interest in visiting us at %{event_name}."
+      date: "The trade fair takes place from %{event_from} to %{event_until}. The location of this event is %{event_location}."
+      closer: "We're looking forward to welcome you at our stand."
+      college: "If you're not able to participate, or you know an interested colleague, you can send her/him an invitation via this form."
+      registration:
+        me_headline: "Your registration"
+        me_description: "We need the following data for your registration.<br>If you're not able to participate, please choose \"%{cant}\" below."
+        college_headline: "Invite a colleague"
+        college_description: "Here you can recommend this event to a colleague. She/he can decide to accept the invitation by her-/himself."
+      form:
+        value:
+          registered: "I will participate in this event."
+          unregistered: "I will not participate in this event."
+          M: "Mr."
+          F: "Mrs."
+        submit: "Registrate"
+    conf:
+      headline: "Thank you for your response."
+      body: "We have received your response. If you want to participate, we will send you further information as soon as possible."
+    already:
+      headline: "Thank you for your response."
+      body: "You've already decided whether you want to participate in this event. If you changed your mind, please contact us by phone (+1 555 1234567)."
+  unsubscribe:
+    headline: "Unsubscripe Mailings"
+    body: "We're sorry to learn, that you don't want to get e-mails from us any longer. Of course we will act according to your wish immediately.<br>We would be glad to get to know your reasons."
+    button: "Give feedback"
+    confirmation:
+      headline: "Thank you for your feedback."
+      body: "We will take your feedback to heart."

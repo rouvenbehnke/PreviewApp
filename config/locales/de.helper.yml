@@ -1,0 +1,16 @@
+de:
+  helpers:
+    label:
+      contact:
+        status: "Möchten Sie teilnehmen?"
+      infopark_crm_contact:
+        first_name: "Vorname"
+        last_name: "Nachname"
+        email: "E-Mail-Adresse"
+        phone: "Telefon"
+      guest:
+        gender: "Anrede"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        email: "E-Mail-Adresse"
+        phone: "Telefon"
