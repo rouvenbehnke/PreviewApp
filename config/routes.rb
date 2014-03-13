@@ -6,6 +6,7 @@ Cc71::Application.routes.draw do
   match 'event-invitation/already/:contact' => 'events#already', :as => 'event_invitation_already'
   match 'event-invitation/confirmation/:contact' => 'events#confirmation', :as => 'event_invitation_confirmation'
   match 'unsubscribe/confirmation' => 'subscriptions#confirmation', :as => 'unsubscribe_confirmation'
+  get 'event-invitation/cal/:event', to: 'events#ics'
   get 'event-invitation/:event/:contact', to: 'events#invitation'
   get 'unsubscribe/:contact', to: 'subscriptions#unsubscribe'
   get 'sitemap.xml', controller: 'sitemap', action: 'index', format: 'xml'

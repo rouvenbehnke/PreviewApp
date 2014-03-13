@@ -83,3 +83,4 @@ end
 
 gem "projekktor-rails"
 gem 'meta-tags', :require => 'meta_tags'
+gem 'ri_cal'

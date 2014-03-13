@@ -24,6 +24,8 @@ class EventsController < ApplicationController
         kind: "event_inv_response", 
         state: "open",
         custom_invited: (params[:params][:extern].blank?) ? "internal" : "external",
+        custom_state: params[:state],
+        custom_event: @event.id,
         comment_contact_id: @contact.id,
         comment_notes: comment,
         comment_published: true)
@@ -45,6 +47,22 @@ class EventsController < ApplicationController
     @contact = Infopark::Crm::Contact.find(params[:contact])
   end
 
+  def ics
+    event = Infopark::Crm::Event.find(params[:event])
+    cal =RiCal.Calendar do
+      event do
+        summary event.title
+        description event.title
+        dtstart DateTime.parse(event.dtstart_at)
+        dtend DateTime.parse(event.dtend_at)
+        location event.location
+      end
+    end
+      respond_to do |format|
+      format.ics { send_data(cal.export, :filename=>"#{event.title}.ics", :disposition=>"inline; filename=#{event.title}.ics", :type=>"text/calendar")}
+    end
+  end
+
   private
 
   def new_or_known(params)
@@ -64,7 +82,7 @@ class EventsController < ApplicationController
   def create_invitation(guest, contact, event)
     a = Infopark::Crm::Activity.create(
         contact_id: guest.id, 
-        title: "External Invitation to event.title",
+        title: "External Invitation to #{event.title}",
         kind: "external_event_inv",
         custom_event: event.id,
         custom_by: "#{contact.last_name}, #{contact.first_name}",
