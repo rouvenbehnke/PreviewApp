@@ -12,6 +12,10 @@ de:
       date: "Die Messe findet vom %{event_from} Uhr bis %{event_until} Uhr statt. Veranstaltungsort ist %{event_location}."
       closer: "Wir würden uns sehr freuen, Sie an unserem Stand begrüßen zu können."
       college: "Wenn Sie nicht teilnehmen können, oder eine Kollegin/ein Kollege von Ihnen Interesse an einem Besuch hätte, dann können Sie sie/ihn ganz bequem einladen."
+      interest:
+        knowlage: "Schulung"
+        marketing: "Marketing"
+        products: "Produkte"
       registration:
         me_headline: "Ihre Anmeldung"
         me_description: "Folgende Daten werden für Ihre Anmeldung benötigt.<br>Sollte es Ihnen nicht möglich sein an der Veranstaltung teilzunehmen, wählen Sie bitte \"%{cant}\" aus."

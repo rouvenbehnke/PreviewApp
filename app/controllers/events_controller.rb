@@ -11,7 +11,8 @@ class EventsController < ApplicationController
     ec = Infopark::Crm::EventContact.create(
         contact_id: @contact.id, 
         event_id: @event.id, 
-        state: params[:state])
+        state: params[:state],
+        custom_interest: params[:infopark_crm_contact][:custom_interest])
     if ec.valid?
       comment = "First name: #{params[:infopark_crm_contact][:first_name]}\n" +
                 "Last name: #{params[:infopark_crm_contact][:last_name]}\n" + 
@@ -61,6 +62,10 @@ class EventsController < ApplicationController
       respond_to do |format|
       format.ics { send_data(cal.export, :filename=>"#{event.title}.ics", :disposition=>"inline; filename=#{event.title}.ics", :type=>"text/calendar")}
     end
+  end
+
+  def ticket
+    redirect_to ActionController::Base.helpers.asset_path('ticket.jpg')
   end
 
   private

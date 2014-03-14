@@ -8,6 +8,7 @@ en:
         last_name: "Last name"
         email: "E-mail address"
         phone: "Phone"
+        custom_interest: "interested in"
       guest:
         gender: "Title"
         first_name: "First name"

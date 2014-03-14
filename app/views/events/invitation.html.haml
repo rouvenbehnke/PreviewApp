@@ -44,6 +44,10 @@
         =f.label :phone, class: "col-sm-2 control-label"
         .col-sm-10
           =f.text_field :phone, class: "form-control"
+      .form-group
+        =f.label :custom_interest, class: "col-sm-2 control-label"
+        .col-sm-10
+          =f.select :custom_interest, @event.custom_interest.collect.each {|i| [I18n.t("invitation.invite.interest.#{i}"), i]}, {multiple: true}, {class: "form-control"}
     %h3
       = t("invitation.invite.registration.college_headline")
     %p

@@ -8,6 +8,7 @@ de:
         last_name: "Nachname"
         email: "E-Mail-Adresse"
         phone: "Telefon"
+        custom_interest: "Interesse an"
       guest:
         gender: "Anrede"
         first_name: "Vorname"

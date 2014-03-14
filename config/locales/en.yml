@@ -12,6 +12,10 @@ en:
       date: "The trade fair takes place from %{event_from} to %{event_until}. The location of this event is %{event_location}."
       closer: "We're looking forward to welcome you at our stand."
       college: "If you're not able to participate, or you know an interested colleague, you can send her/him an invitation via this form."
+      interest:
+        knowlage: "Knowlage"
+        marketing: "Marketing"
+        products: "Products"
       registration:
         me_headline: "Your registration"
         me_description: "We need the following data for your registration.<br>If you're not able to participate, please choose \"%{cant}\" below."
