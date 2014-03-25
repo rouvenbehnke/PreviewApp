@@ -1,4 +1,4 @@
-class GoogleMapsWidget < ::RailsConnector::Migration
+class GoogleMapsWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'GoogleMapsWidget',

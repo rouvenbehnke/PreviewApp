@@ -1,4 +1,4 @@
-class ImageWidget < ::RailsConnector::Migration
+class ImageWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'ImageWidget',

@@ -1,4 +1,4 @@
-class ProfilePage < ::RailsConnector::Migration
+class ProfilePage < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'ProfilePage',

@@ -1,4 +1,4 @@
-class SlideshareWidget < ::RailsConnector::Migration
+class SlideshareWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'SlideshareWidget',

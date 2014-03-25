@@ -1,4 +1,4 @@
-class ProfilePageExample < ::RailsConnector::Migration
+class ProfilePageExample < ::Scrival::Migration
   def up
     create_obj(
       _path: '/website/en/profile',

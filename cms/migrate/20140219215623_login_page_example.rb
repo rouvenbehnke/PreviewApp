@@ -1,4 +1,4 @@
-class LoginPageExample < ::RailsConnector::Migration
+class LoginPageExample < ::Scrival::Migration
   def up
     configuration_path = '/website/en/_configuration'
 

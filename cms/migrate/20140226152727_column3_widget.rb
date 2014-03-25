@@ -1,4 +1,4 @@
-class Column3Widget < ::RailsConnector::Migration
+class Column3Widget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'Column3Widget',

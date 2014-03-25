@@ -1,4 +1,4 @@
-class TextWidget < ::RailsConnector::Migration
+class TextWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'TextWidget',

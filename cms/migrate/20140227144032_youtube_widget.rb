@@ -1,4 +1,4 @@
-class YoutubeWidget < ::RailsConnector::Migration
+class YoutubeWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'YoutubeWidget',

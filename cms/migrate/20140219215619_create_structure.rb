@@ -1,4 +1,4 @@
-class CreateStructure < ::RailsConnector::Migration
+class CreateStructure < ::Scrival::Migration
   def up
     website_path = '/website'
     homepage_path = "#{website_path}/en"
@@ -52,25 +52,25 @@ class CreateStructure < ::RailsConnector::Migration
 
   def try_update_obj_class(id, attributes)
     update_obj_class(id, attributes)
-  rescue RailsConnector::ClientError => error
+  rescue Scrival::ClientError => error
     warning(error)
   end
 
   def try_create_obj(attributes = {})
     create_obj(attributes)
-  rescue RailsConnector::ClientError => error
+  rescue Scrival::ClientError => error
     warning(error)
   end
 
   def try_update_obj(id, attributes = {})
     update_obj(id, attributes)
-  rescue RailsConnector::ClientError => error
+  rescue Scrival::ClientError => error
     warning(error)
   end
 
   def warning(error)
     puts error.message
-    puts 'Some aspects of the Infopark Kickstarter may not work as expected.'
+    puts 'Some aspects of the scrival Kickstarter may not work as expected.'
   end
 
   def delete_obj_by_path(path)

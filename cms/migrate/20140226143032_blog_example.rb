@@ -1,4 +1,4 @@
-class BlogExample < ::RailsConnector::Migration
+class BlogExample < ::Scrival::Migration
   def up
     blog_path = '/website/en/blog'
 
@@ -57,9 +57,9 @@ class BlogExample < ::RailsConnector::Migration
   private
 
   def add_widget(obj, attribute, widget_params)
-    workspace_id = RailsConnector::Workspace.current.id
-    obj_params = RailsConnector::CmsRestApi.get("workspaces/#{workspace_id}/objs/#{obj.id}")
-    widget_id = RailsConnector::BasicObj.generate_widget_pool_id
+    workspace_id = Scrival::Workspace.current.id
+    obj_params = Scrival::CmsRestApi.get("workspaces/#{workspace_id}/objs/#{obj.id}")
+    widget_id = Scrival::BasicObj.generate_widget_pool_id
 
     params = {}
     params['_widget_pool'] = { widget_id => widget_params }

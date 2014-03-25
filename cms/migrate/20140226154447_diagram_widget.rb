@@ -1,4 +1,4 @@
-class DiagramWidget < ::RailsConnector::Migration
+class DiagramWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'DiagramWidget',

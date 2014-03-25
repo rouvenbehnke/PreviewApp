@@ -1,4 +1,4 @@
-class ContactPage < ::RailsConnector::Migration
+class ContactPage < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'ContactPage',

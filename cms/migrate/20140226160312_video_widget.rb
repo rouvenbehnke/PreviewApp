@@ -1,4 +1,4 @@
-class VideoWidget < ::RailsConnector::Migration
+class VideoWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'VideoWidget',

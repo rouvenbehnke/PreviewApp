@@ -1,4 +1,4 @@
-class TeaserWidget < ::RailsConnector::Migration
+class TeaserWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'TeaserWidget',

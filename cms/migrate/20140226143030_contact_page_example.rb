@@ -1,4 +1,4 @@
-class ContactPageExample < ::RailsConnector::Migration
+class ContactPageExample < ::Scrival::Migration
   def up
     create_obj(
       _path: '/website/en/contact',
@@ -17,14 +17,14 @@ class ContactPageExample < ::RailsConnector::Migration
   end
 
   def setup_crm
-    Infopark::Crm::CustomType.find(activity_type)
+    Scrival::Crm::CustomType.find(activity_type)
   rescue ActiveResource::ResourceNotFound
     custom_attributes = [
       { name: 'email', title: 'Email Adress', type: 'string' },
       { name: 'message', title: 'Message', type: 'text', max_length: 1000 }
     ]
 
-    Infopark::Crm::CustomType.create(
+    Scrival::Crm::CustomType.create(
       kind: 'Activity',
       name: activity_type,
       states: %w(open closed),

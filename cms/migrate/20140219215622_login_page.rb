@@ -1,4 +1,4 @@
-class LoginPage < ::RailsConnector::Migration
+class LoginPage < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'LoginPage',

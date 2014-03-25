@@ -1,4 +1,4 @@
-class PersonWidget < ::RailsConnector::Migration
+class PersonWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'PersonWidget',

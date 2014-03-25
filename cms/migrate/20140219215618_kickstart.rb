@@ -1,4 +1,4 @@
-class Kickstart < ::RailsConnector::Migration
+class Kickstart < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'Video',

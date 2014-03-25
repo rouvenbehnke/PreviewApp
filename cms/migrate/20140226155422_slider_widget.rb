@@ -1,4 +1,4 @@
-class SliderWidget < ::RailsConnector::Migration
+class SliderWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'SliderWidget',

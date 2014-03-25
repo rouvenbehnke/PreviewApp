@@ -1,4 +1,4 @@
-class HeadlineWidget < ::RailsConnector::Migration
+class HeadlineWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'HeadlineWidget',

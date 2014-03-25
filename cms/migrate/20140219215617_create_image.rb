@@ -1,4 +1,4 @@
-class CreateImage < ::RailsConnector::Migration
+class CreateImage < ::Scrival::Migration
   def up
     unless obj_class_exists?('Image')
       create_obj_class(
@@ -19,7 +19,7 @@ class CreateImage < ::RailsConnector::Migration
 
   def obj_class_exists?(name)
     get_obj_class(name).present?
-  rescue ::RailsConnector::ClientError
+  rescue ::Scrival::ClientError
     false
   end
 end

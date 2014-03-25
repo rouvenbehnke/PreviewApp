@@ -1,4 +1,4 @@
-class VimeoWidget < ::RailsConnector::Migration
+class VimeoWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'VimeoWidget',

@@ -1,4 +1,4 @@
-class UpdateContentPage < ::RailsConnector::Migration
+class UpdateContentPage < ::Scrival::Migration
   def up
     # get_obj_class('Test')
     # create_obj_class(name: 'Test', type: :publication, attributes: [])

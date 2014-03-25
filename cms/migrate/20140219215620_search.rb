@@ -1,4 +1,4 @@
-class Search < ::RailsConnector::Migration
+class Search < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'SearchPage',

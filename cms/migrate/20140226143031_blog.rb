@@ -1,4 +1,4 @@
-class Blog < ::RailsConnector::Migration
+class Blog < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'Blog',

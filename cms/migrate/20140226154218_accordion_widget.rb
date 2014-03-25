@@ -1,4 +1,4 @@
-class AccordionWidget < ::RailsConnector::Migration
+class AccordionWidget < ::Scrival::Migration
   def up
     create_obj_class(
       name: 'AccordionWidget',
