@@ -3,7 +3,7 @@ en:
     label:
       contact:
         status: "Would you like to participate?"
-      infopark_crm_contact:
+      scrival_crm_contact:
         first_name: "First name"
         last_name: "Last name"
         email: "E-mail address"
