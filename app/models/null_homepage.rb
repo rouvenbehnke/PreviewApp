@@ -2,7 +2,7 @@
 # working copy does not return a valid homepage object. Usually, you can delete
 # this file safely once you first published your content. See
 # "app/controllers/null_homepage_controller" and
-# "config/initializers/rails_connector.rb" as well.
+# "config/initializers/scrival.rb" as well.
 class NullHomepage < Obj
   def id
     '0'
