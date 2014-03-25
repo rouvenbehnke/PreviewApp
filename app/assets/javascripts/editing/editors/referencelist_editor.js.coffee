@@ -18,7 +18,7 @@ $ ->
 
   # Returns the closest referencelist DOM element.
   getCmsField = (element) ->
-    element.closest('[data-ip-field-type=referencelist]')
+    element.closest('[data-scrival-field-type=referencelist]')
 
   # Saves the referencelist to the CMS when changed and stores the last successfully saved value.
   save = (ids, cmsField) ->
@@ -27,10 +27,10 @@ $ ->
     unless JSON.stringify(ids) == JSON.stringify(lastSaved)
       cmsField.addClass('saving')
 
-      cmsField.infopark('save', ids)
+      cmsField.scrival('save', ids)
         .done ->
           storeLastSaved(cmsField, ids)
-          cmsField.trigger('infopark_reload')
+          cmsField.trigger('scrival_reload')
         .fail ->
           cmsField.removeClass('saving')
 
@@ -89,8 +89,8 @@ $ ->
     $(cmsField).data('last-saved', value)
 
   # Initialize referencelist editor and setup event callbacks.
-  infopark.on 'new_content', (root) ->
-    elements = $(root).find('[data-ip-field-type=referencelist]')
+  scrival.on 'new_content', (root) ->
+    elements = $(root).find('[data-scrival-field-type=referencelist]')
 
     if elements.length
       transform(elements)

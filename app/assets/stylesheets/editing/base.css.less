@@ -7,8 +7,8 @@
 // widget has a CMS widget attribute inside. If that is the case, the structure widget edit marker
 // is placed above the edit marker for the CMS widget attribute and gets a different color.
 
-body.ip_editing_active.ip_editable_workspace {
-  div[data-ip-private-widget-obj-class] {
+body.scrival_editing_active.scrival_editable_workspace {
+  div[data-scrival-private-widget-obj-class] {
     // Color to highlight the structure widget
     @nestedWidgetColor: #74e000;
 
@@ -17,7 +17,7 @@ body.ip_editing_active.ip_editable_workspace {
 
     min-height: @nestedWidgetMinHeight;
 
-    div[data-ip-field-type=widget] {
+    div[data-scrival-field-type=widget] {
       .transition(~"outline-color ease-in-out .8s");
 
       margin-top: 35px;
@@ -31,7 +31,7 @@ body.ip_editing_active.ip_editable_workspace {
         outline: 2px dotted @nestedWidgetColor;
       }
 
-      & > .ip_editing_marker {
+      & > .scrival_editing_marker {
         border-color: @nestedWidgetColor;
       }
     }
@@ -43,12 +43,12 @@ body.ip_editing_active.ip_editable_workspace {
 // When CMS attributes are displayed on the page and edit mode is active, the attributes get
 // highlighted and indicate, that they can be edited via inplace editing.
 
-body.ip_editing_active.ip_editable_workspace {
-  [data-ip-field-type=html],
-  [data-ip-field-type=string],
-  [data-ip-field-type=text],
-  [data-ip-field-type=reference],
-  [data-ip-field-type=date] {
+body.scrival_editing_active.scrival_editable_workspace {
+  [data-scrival-field-type=html],
+  [data-scrival-field-type=string],
+  [data-scrival-field-type=text],
+  [data-scrival-field-type=reference],
+  [data-scrival-field-type=date] {
     @editableFieldColor: #ffa500;
 
    .transition(~"outline-color ease-in-out .8s");

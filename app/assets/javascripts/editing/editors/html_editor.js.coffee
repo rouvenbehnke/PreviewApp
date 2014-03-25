@@ -110,7 +110,7 @@ $ ->
     content = editor.get()
 
     if savedContent != content
-      editor.$element.infopark('save', content).done ->
+      editor.$element.scrival('save', content).done ->
         savedContent = content
       .fail ->
         editor.getBox().removeClass('saving')
@@ -127,20 +127,20 @@ $ ->
 
   # Registers Redactor for all CMS html attributes found in the given scope of the DOM element.
   addOnclickRedactorHandlers = (domElement) ->
-    fields = domElement.find("[data-ip-field-type='html']")
+    fields = domElement.find("[data-scrival-field-type='html']")
 
     fields.on 'click', (event) ->
       event.preventDefault()
       cmsField = $(this)
 
       unless cmsField.hasClass('redactor_editor')
-        cmsField.html(cmsField.infopark('content') || '')
+        cmsField.html(cmsField.scrival('content') || '')
         cmsField.redactor(redactorOptions())
 
   # Registers all handlers when inplace editing is activated.
-  infopark.on 'editing', ->
+  scrival.on 'editing', ->
     addOnclickRedactorHandlers($('body'))
 
   # Registers all handlers when content has changed.
-  infopark.on 'new_content', (domElement) ->
+  scrival.on 'new_content', (domElement) ->
     addOnclickRedactorHandlers($(domElement))

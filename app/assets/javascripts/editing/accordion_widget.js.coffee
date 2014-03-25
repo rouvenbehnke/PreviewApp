@@ -1,6 +1,6 @@
 $ ->
-  # The accordion widget uses the Twitter Bootstrap 3 panel JavaScript. In edit mode, all panels
-  # should unfold, so that the editor can manipulate their contents directly.
+  # The accordion widget uses the Twitter Bootstrap 3 panel JavaScrscrivalt. In edit mode, all panels
+  # should unfold, so that the editor can manscrivalulate their contents directly.
 
-  infopark.on 'editing', ->
+  scrival.on 'editing', ->
     $('.panel-collapse').collapse('show')

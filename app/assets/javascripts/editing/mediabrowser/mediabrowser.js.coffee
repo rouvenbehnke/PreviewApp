@@ -40,7 +40,7 @@
       item = @_getItemContainer(selected_id)
       @_itemLoading(item)
 
-      infopark.delete_obj(selected_id).then =>
+      scrival.delete_obj(selected_id).then =>
         item.remove()
 
     @_deselectAllItems()

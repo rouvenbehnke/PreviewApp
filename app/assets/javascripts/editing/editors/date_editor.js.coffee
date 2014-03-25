@@ -1,8 +1,8 @@
 $ ->
   # Define editor behavior for date attributes.
 
-  infopark.on 'editing', () ->
-    cmsEditDates = $('[data-ip-field-type=date]')
+  scrival.on 'editing', () ->
+    cmsEditDates = $('[data-scrival-field-type=date]')
 
     for cmsEditDate in cmsEditDates
       dateField = $(cmsEditDate).find('input[type=text]')
@@ -13,5 +13,5 @@ $ ->
         # Set date hour to 12 to work around complex time zone handling.
         date.setHours(12)
 
-        cmsField = $(@).closest('[data-ip-field-type=date]')
-        cmsField.infopark('save', date)
+        cmsField = $(@).closest('[data-scrival-field-type=date]')
+        cmsField.scrival('save', date)

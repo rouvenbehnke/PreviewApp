@@ -45,7 +45,7 @@
   vertical-align: middle;
 }
 
-.editing-icon-ip:after { content: "\F000"; }
+.editing-icon-scrival:after { content: "\F000"; }
 .editing-icon-text:after { content: "\F001"; }
 .editing-icon-image:after { content: "\F002"; }
 .editing-icon-headline:after { content: "\F003"; }
@@ -104,8 +104,8 @@
 // copy selected. The icons are based on the CMS attribute type. Each type has a default icon, which
 // can be overriden below.
 
-body.ip_editing_active.ip_editable_workspace {
-  [data-ip-field-type]:empty:before {
+body.scrival_editing_active.scrival_editable_workspace {
+  [data-scrival-field-type]:empty:before {
     .user-select(none);
 
     color: #ccc;
@@ -122,14 +122,14 @@ body.ip_editing_active.ip_editable_workspace {
     vertical-align: middle;
   }
 
-  [data-ip-field-type=string]:empty:before { content: '\F016'; }
-  [data-ip-field-type=text]:empty:before { content: '\F017'; }
-  [data-ip-field-type=html]:empty:before { content: '\F018'; }
-  [data-ip-field-type=enum]:empty:before { content: '\F019'; }
-  [data-ip-field-type=multienum]:empty:before { content: '\F01A'; }
-  [data-ip-field-type=boolean]:empty:before { content: '\F01B'; }
-  [data-ip-field-type=date]:empty:before { content: '\F01C'; }
-  [data-ip-field-type=linklist]:empty:before { content: '\F01D'; }
-  [data-ip-field-type=reference]:empty:before { content: '\F01D'; }
-  [data-ip-field-type=referencelist]:empty:before { content: '\F01D'; }
+  [data-scrival-field-type=string]:empty:before { content: '\F016'; }
+  [data-scrival-field-type=text]:empty:before { content: '\F017'; }
+  [data-scrival-field-type=html]:empty:before { content: '\F018'; }
+  [data-scrival-field-type=enum]:empty:before { content: '\F019'; }
+  [data-scrival-field-type=multienum]:empty:before { content: '\F01A'; }
+  [data-scrival-field-type=boolean]:empty:before { content: '\F01B'; }
+  [data-scrival-field-type=date]:empty:before { content: '\F01C'; }
+  [data-scrival-field-type=linklist]:empty:before { content: '\F01D'; }
+  [data-scrival-field-type=reference]:empty:before { content: '\F01D'; }
+  [data-scrival-field-type=referencelist]:empty:before { content: '\F01D'; }
 }

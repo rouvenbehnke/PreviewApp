@@ -22,7 +22,7 @@ $ ->
 
   # Returns the closest linklist DOM element.
   getCmsField = (element) ->
-    element.closest('[data-ip-field-type=linklist]')
+    element.closest('[data-scrival-field-type=linklist]')
 
   # Saves the entire linklist to the CMS and stores the last successfully saved value.
   save = (cmsField) ->
@@ -30,7 +30,7 @@ $ ->
     lastSaved = getLastSaved(cmsField)
 
     unless JSON.stringify(value) == JSON.stringify(lastSaved)
-      cmsField.infopark('save', value).done ->
+      cmsField.scrival('save', value).done ->
         storeLastSaved(cmsField, value)
 
   # Run when clicking the '...' button inside a li.
@@ -55,7 +55,7 @@ $ ->
 
     true
 
-  # Transforms an obj id into an url that can be parsed by the RailsConnector
+  # Transforms an obj id into an url that can be parsed by the Scrival
   # to establish an internal link.
   buildUrl = (id) ->
     "/#{id}"
@@ -118,8 +118,8 @@ $ ->
     save(cmsField)
 
   # Initialize linklist editor and setup event callbacks.
-  infopark.on 'new_content', (root) ->
-    linklistElements = $(root).find('[data-ip-field-type=linklist]')
+  scrival.on 'new_content', (root) ->
+    linklistElements = $(root).find('[data-scrival-field-type=linklist]')
 
     if linklistElements.length
       transformLinks(linklistElements)

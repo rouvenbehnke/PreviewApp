@@ -1,8 +1,8 @@
 $ ->
   # Define editor behavior for multienum attributes.
 
-  infopark.on 'editing', ->
-    $(document).on 'focusout', '[data-ip-field-type=multienum]', ->
+  scrival.on 'editing', ->
+    $(document).on 'focusout', '[data-scrival-field-type=multienum]', ->
       element = $(@)
 
-      element.infopark('save', element.val())
+      element.scrival('save', element.val())

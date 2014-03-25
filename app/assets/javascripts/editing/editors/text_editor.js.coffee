@@ -3,7 +3,7 @@ $ ->
 
   timeout = undefined
 
-  infopark.on 'editing', ->
+  scrival.on 'editing', ->
     template = ->
       editor = $('<div></div>')
         .addClass('text-editor')
@@ -18,7 +18,7 @@ $ ->
       element.closest('.text-editor')
 
     editMarker = (cmsField) ->
-      cmsField.closest('[data-ip-private-widget-obj-class]').find('.ip_editing_marker')
+      cmsField.closest('[data-scrival-private-widget-obj-class]').find('.scrival_editing_marker')
 
     disableEditMode = (box) ->
       cmsField = box.data('cmsField')
@@ -54,7 +54,7 @@ $ ->
       if closeInput
         box.addClass('saving')
 
-      cmsField.infopark('save', content).done ->
+      cmsField.scrival('save', content).done ->
         if closeInput
           cmsField.html(content)
           disableEditMode(box)
@@ -69,7 +69,7 @@ $ ->
     onBlur = (event) ->
       save(event, true)
 
-    $('body').on 'click', '[data-ip-field-type=text]', (event) ->
+    $('body').on 'click', '[data-scrival-field-type=text]', (event) ->
       event.preventDefault()
       event.stopPropagation()
 
@@ -79,7 +79,7 @@ $ ->
         .data('cmsField', cmsField)
         .insertAfter(cmsField)
         .find('textarea')
-        .val(cmsField.infopark('content') || '')
+        .val(cmsField.scrival('content') || '')
         .focusout(onBlur)
         .keyup(keyUp)
         .focus()

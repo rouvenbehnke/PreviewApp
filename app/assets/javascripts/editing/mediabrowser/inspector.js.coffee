@@ -61,7 +61,7 @@
         id: @objectId
       success: (json) =>
         @inspector.html(json.content)
-        infopark.trigger('new_content', @inspector)
+        scrival.trigger('new_content', @inspector)
 
       error: =>
         @inspector.empty()
