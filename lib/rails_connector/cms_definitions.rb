@@ -1,4 +1,4 @@
-module RailsConnector
+module Scrival
   module CmsDefinitions
     extend ActiveSupport::Concern
 
@@ -9,9 +9,9 @@ module RailsConnector
     module ClassMethods
       def cms_obj_class_definition
         @obj_class_hash ||= begin
-          workspace_id = RailsConnector::Workspace.current.id
+          workspace_id = Scrival::Workspace.current.id
 
-          RailsConnector::CmsRestApi.get("workspaces/#{workspace_id}/obj_classes/#{name}")
+          Scrival::CmsRestApi.get("workspaces/#{workspace_id}/obj_classes/#{name}")
         end
       end
 
