@@ -21,6 +21,6 @@ class NullHomepage < Obj
   end
 
   def menu_title
-    'Welcome to Infopark'
+    'Welcome to scrival'
   end
 end

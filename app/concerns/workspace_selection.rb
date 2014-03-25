@@ -40,9 +40,9 @@ module WorkspaceSelection
   end
 
   def find_workspace(title_or_id)
-    workspace = RailsConnector::Workspace.find(title_or_id)
+    workspace = Scrival::Workspace.find(title_or_id)
     workspace.id
-  rescue RailsConnector::ResourceNotFound
+  rescue Scrival::ResourceNotFound
     workspace = workspaces.detect do |workspace|
       workspace['title'] == title_or_id
     end
@@ -51,7 +51,7 @@ module WorkspaceSelection
   end
 
   def workspaces
-    ::RailsConnector::CmsRestApi.get('workspaces')['results']
+    ::Scrival::CmsRestApi.get('workspaces')['results']
   end
 
   def redirect_to_workspace(workspace)

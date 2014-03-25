@@ -3,7 +3,7 @@ module ExceptionHandling
 
   included do
     unless config.consider_all_requests_local
-      rescue_from(RailsConnector::ResourceNotFound, with: :not_found)
+      rescue_from(Scrival::ResourceNotFound, with: :not_found)
       rescue_from(ActiveResource::ResourceNotFound, with: :not_found)
     end
   end

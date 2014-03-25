@@ -2,8 +2,8 @@ require './lib/rails_connector/cms_definitions'
 
 # This class represents the base class of all CMS objects and implements behavior that all CMS
 # objects, regardless whether they are pages or resources have in common.
-class Obj < ::RailsConnector::BasicObj
-  include RailsConnector::CmsDefinitions
+class Obj < ::Scrival::BasicObj
+  include Scrival::CmsDefinitions
 
   def self.homepage
     default_homepage
@@ -36,7 +36,7 @@ class Obj < ::RailsConnector::BasicObj
     homepage.website
   end
 
-  # Overriden method +slug+ from +RailsConnector::BasicObj+.
+  # Overriden method +slug+ from +Scrival::BasicObj+.
   def slug
     (self[:headline] || '').parameterize
   end

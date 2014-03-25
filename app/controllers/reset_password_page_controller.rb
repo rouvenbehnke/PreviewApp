@@ -1,7 +1,7 @@
 class ResetPasswordPageController < CmsController
   def index
     if request.post?
-      contact = Infopark::Crm::Contact.search(params: { login: user_params[:login] }).first
+      contact = Scrival::Crm::Contact.search(params: { login: user_params[:login] }).first
 
       if contact && contact.password_request
         redirect_to(cms_path(@obj.homepage), notice: 'Password reset successfully. You receive an email with further instructions.')

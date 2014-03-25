@@ -1,7 +1,6 @@
 .col-md-12
   = cms_tag(:h1, @obj, :headline)
 
-  = cms_tag(:div, @obj, :content)
 
 .col-md-5
   = form_for(@contact_page_presenter, url: cms_path(@obj)) do |form|
