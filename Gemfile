@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby "1.9.3"
+
 
 gem 'rails', '3.2.16'
-gem 'infopark_cloud_connector'
+gem 'scrival_sdk'
 gem 'infopark_kickstarter'
 
 # Bundle edge Rails instead:
