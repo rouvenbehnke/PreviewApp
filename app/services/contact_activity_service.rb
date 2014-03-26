@@ -8,7 +8,7 @@ class ContactActivityService
   end
 
   def submit
-    Scrival::Crm::Activity.create(activity_attributes)
+    Infopark::Crm::Activity.create(activity_attributes)
   end
 
   private

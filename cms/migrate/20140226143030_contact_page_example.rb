@@ -17,14 +17,14 @@ class ContactPageExample < ::Scrival::Migration
   end
 
   def setup_crm
-    Scrival::Crm::CustomType.find(activity_type)
+    Infopark::Crm::CustomType.find(activity_type)
   rescue ActiveResource::ResourceNotFound
     custom_attributes = [
       { name: 'email', title: 'Email Adress', type: 'string' },
       { name: 'message', title: 'Message', type: 'text', max_length: 1000 }
     ]
 
-    Scrival::Crm::CustomType.create(
+    Infopark::Crm::CustomType.create(
       kind: 'Activity',
       name: activity_type,
       states: %w(open closed),

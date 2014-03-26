@@ -1,25 +1,25 @@
 class EventsController < ApplicationController
   before_filter :meta, :homepage, :set_locale
   def invitation
-    @event = Scrival::Crm::Event.find(params[:event])
-    @contact = Scrival::Crm::Contact.find(params[:contact])
+    @event = Infopark::Crm::Event.find(params[:event])
+    @contact = Infopark::Crm::Contact.find(params[:contact])
   end
 
   def create
-    @event = Scrival::Crm::Event.find(params[:params][:event])
-    @contact = Scrival::Crm::Contact.find(params[:params][:contact])
-    ec = Scrival::Crm::EventContact.create(
+    @event = Infopark::Crm::Event.find(params[:params][:event])
+    @contact = Infopark::Crm::Contact.find(params[:params][:contact])
+    ec = Infopark::Crm::EventContact.create(
         contact_id: @contact.id, 
         event_id: @event.id, 
         state: params[:state],
-        custom_interest: params[:scrival_crm_contact][:custom_interest])
+        custom_interest: params[:infopark_crm_contact][:custom_interest])
     if ec.valid?
-      comment = "First name: #{params[:scrival_crm_contact][:first_name]}\n" +
-                "Last name: #{params[:scrival_crm_contact][:last_name]}\n" + 
-                "Email: #{params[:scrival_crm_contact][:email]}\n" + 
-                "Phone: #{params[:scrival_crm_contact][:phone]}\n" + 
+      comment = "First name: #{params[:infopark_crm_contact][:first_name]}\n" +
+                "Last name: #{params[:infopark_crm_contact][:last_name]}\n" + 
+                "Email: #{params[:infopark_crm_contact][:email]}\n" + 
+                "Phone: #{params[:infopark_crm_contact][:phone]}\n" + 
                 "State: #{params[:state]}"
-      a = Scrival::Crm::Activity.create(
+      a = Infopark::Crm::Activity.create(
         contact_id: @contact.id, 
         title: "Event response for #{@event.title}", 
         kind: "event_inv_response", 
@@ -41,15 +41,15 @@ class EventsController < ApplicationController
   end
 
   def already
-    @contact = Scrival::Crm::Contact.find(params[:contact])
+    @contact = Infopark::Crm::Contact.find(params[:contact])
   end
 
   def confirmation
-    @contact = Scrival::Crm::Contact.find(params[:contact])
+    @contact = Infopark::Crm::Contact.find(params[:contact])
   end
 
   def ics
-    event = Scrival::Crm::Event.find(params[:event])
+    event = Infopark::Crm::Event.find(params[:event])
     cal =RiCal.Calendar do
       event do
         summary event.title
@@ -71,9 +71,9 @@ class EventsController < ApplicationController
   private
 
   def new_or_known(params)
-    g = Scrival::Crm::Contact.search(:params => {:email => params[:email]}).first
+    g = Infopark::Crm::Contact.search(:params => {:email => params[:email]}).first
     if g.nil?
-      g = Scrival::Crm::Contact.create(
+      g = Infopark::Crm::Contact.create(
           first_name: params[:first_name], 
           last_name: params[:last_name],
           gender: params[:gender],
@@ -85,7 +85,7 @@ class EventsController < ApplicationController
   end
 
   def create_invitation(guest, contact, event)
-    a = Scrival::Crm::Activity.create(
+    a = Infopark::Crm::Activity.create(
         contact_id: guest.id, 
         title: "External Invitation to #{event.title}",
         kind: "external_event_inv",

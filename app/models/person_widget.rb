@@ -4,8 +4,8 @@ class PersonWidget < Widget
     person = self[:person] || ''
 
     if person.present?
-      @person ||= Scrival::Crm::Contact.search(params: { login: person }).first
-      @person ||= Scrival::Crm::Contact.search(params: { email: person }).first
+      @person ||= Infopark::Crm::Contact.search(params: { login: person }).first
+      @person ||= Infopark::Crm::Contact.search(params: { email: person }).first
     end
   end
 end

@@ -2,10 +2,10 @@ class SubscriptionsController < ApplicationController
   before_filter :meta, :homepage, :set_locale
 
   def unsubscribe
-    @contact = Scrival::Crm::Contact.find(params[:contact])
+    @contact = Infopark::Crm::Contact.find(params[:contact])
     @contact.want_email = false
     @contact.save
-    @a = Scrival::Crm::Activity.create(
+    @a = Infopark::Crm::Activity.create(
         contact_id: @contact.id, 
         title: "Unsubscribe",
         kind: "note", 
@@ -14,7 +14,7 @@ class SubscriptionsController < ApplicationController
 
   def confirmation
     unless params[:unsub].nil?
-      a = Scrival::Crm::Activity.find(params[:unsub][:activity])
+      a = Infopark::Crm::Activity.find(params[:unsub][:activity])
       a.comment_contact_id = a.contact_id
       a.comment_notes = params[:unsub][:reason]
       a.comment_published = false
